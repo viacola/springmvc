@@ -24,20 +24,20 @@ public String echo(){
 我可以提供一个Controller:
 
 
-	```java
-	@Controller
-	class UserRest {
-		@RequestMapping("/user")
-		public @ResponseBody String getUser() {
-			return """
-			{
-				"name":"bingo",
-				"age":34,
-				"address":"nanjing"
-			}
-			""";
+```java
+@Controller
+class UserRest {
+	@RequestMapping("/user")
+	public @ResponseBody String getUser() {
+		return """
+		{
+			"name":"bingo",
+			"age":34,
+			"address":"nanjing"
 		}
+		""";
 	}
-	```
+}
+```
 	
 	
