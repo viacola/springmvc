@@ -40,9 +40,9 @@ public String echo(){
 ```java
 @RequestMapping("/user2")
 public @ResponseBody String getUser2() {
-	def builder = new JsonBuilder();
+	def user = new JsonBuilder();
 	def test ="AAAA"
-	builder.user {
+	user {
 		name 'bingo'
 		age  34
 		credit  test
@@ -52,11 +52,13 @@ public @ResponseBody String getUser2() {
 				zip: 210012
 			)  
 		married true
-			
+		
 		departments 'TAP','Design dept.','Project Manager dept.'
 	}
-
-	builder.toString()
+	
+	//user.pet name: 'dog'
+	
+	user.toPrettyString()
 }
 ```
 
