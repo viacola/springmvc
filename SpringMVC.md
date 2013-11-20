@@ -3,7 +3,7 @@ SpringMVC 的restful 服务 开发,和设计
 
 目前基于SpringMVC的技术架构在企业技术里面很流行.很多项目,都基于之类来构建后台架构.
 我使用简化版本的SpringMVC,只是用了MVC,快速设计和开发Restful的服务而已.
-什么是Model,什么是View,我都布关心,我只关心出数据服务(REST).
+什么是Model,什么是View,我都不关心,我只关心出数据服务(REST).
 比如如下代码:
 ```java
 @RequestMapping(value = "/echo", method = RequestMethod.GET)
@@ -83,6 +83,6 @@ public @ResponseBody String getUser2() {
 }
 ```
 
-也也可以用Jackson的 json库，也可以用阿里的FastJson库。
+也可以用Jackson的 json库，也可以用阿里的FastJson库。
 
 	
