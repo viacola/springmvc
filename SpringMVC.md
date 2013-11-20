@@ -59,5 +59,27 @@ public @ResponseBody String getUser2() {
 	builder.toString()
 }
 ```
+
+打印的json为：
+
+```json
+{
+    "name": "bingo",
+    "age": 34,
+    "credit": "AAAA",
+    "address": {
+        "city": "nanjing",
+        "country": "china",
+        "zip": 210012
+    },
+    "married": true,
+    "departments": [
+        "TAP",
+        "Design dept.",
+        "Project Manager dept."
+    ]
+}
+```
+
 	
 	
