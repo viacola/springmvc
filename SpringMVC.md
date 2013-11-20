@@ -83,5 +83,6 @@ public @ResponseBody String getUser2() {
 }
 ```
 
-	
+也也可以用Jackson的 json库，也可以用阿里的FastJson库。
+
 	
