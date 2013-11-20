@@ -22,21 +22,41 @@ public String echo(){
 
 另外我还提供改进版本的方式,我引入了 Groovy,进行简化编程.
 我可以提供一个Controller:
+```java
+@RequestMapping("/user")
+    public @ResponseBody String getUser() {
+        return """
+        {
+            "name":"bingo",
+            "age":34,
+            "address":"nanjing"
+        }
+        """;
+    }
+```
+
 
 
 ```java
-@Controller
-class UserRest {
-	@RequestMapping("/user")
-	public @ResponseBody String getUser() {
-		return """
-		{
-			"name":"bingo",
-			"age":34,
-			"address":"nanjing"
-		}
-		""";
+@RequestMapping("/user2")
+public @ResponseBody String getUser2() {
+	def builder = new JsonBuilder();
+	def test ="AAAA"
+	builder.user {
+		name 'bingo'
+		age  34
+		credit  test
+		address(
+				city: 'nanjing',
+				country: 'china',
+				zip: 210012
+			)  
+		married true
+			
+		departments 'TAP','Design dept.','Project Manager dept.'
 	}
+
+	builder.toString()
 }
 ```
 	
