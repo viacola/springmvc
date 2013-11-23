@@ -29,6 +29,12 @@
     	<beans:property name="password"><beans:value>postgres</beans:value></beans:property>
     
     </beans:bean>
+    
+     <beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<beans:property name="dataSource"><beans:ref bean="dataSource"/> </beans:property>
+    	
+    </beans:bean>  
+    
 	<context:component-scan base-package="com.springapp.mvc" />
 	
 

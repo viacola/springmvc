@@ -3,6 +3,7 @@ package com.springapp.mvc.bmo
 import groovy.sql.Sql
 import javax.sql.DataSource
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,18 @@ class UserService {
 	@Autowired
 	DataSource dataSource
 	
+	@Autowired
+	JdbcTemplate jdbcTemplate
+	
+	def sql 
+	
+	@Autowired
+	public UserService(DataSource dataSource){
+		sql = new Sql(dataSource)
+	}
+	
+
+	
 	public bingo(){
 		println("enter bingo()!")
 		"!bingo!"
@@ -18,15 +31,8 @@ class UserService {
 	
 	public insertUser(){
 		
-		def sql = new Sql(dataSource)
-		
-		sql.execute '''
-	     create table PROJECT (
-	         id integer not null,
-	         name varchar(50),
-	         url varchar(100),
-	     )
-	 '''
+		def params = [20, 'Groovy', 'http://groovy.codehaus.org']
+		sql.execute 'insert into PROJECT (id, name, url) values (?, ?, ?)', params
 		
 		
 		
@@ -37,6 +43,21 @@ class UserService {
 	}
 	
 	public deleteUser(){
+		
+	}
+	
+	public  queryUser(){
+		//def rows = sql.rows("select * from PROJECT where name like 'Gra%'")
+		 sql.eachRow('select * from PROJECT') { row ->
+			 println "${row.name.padRight(10)} ($row.url)"
+		 }
+		return rows
+	}
+	
+	public int  queryUser4Jt(){
+		
+		def num = jdbcTemplate.queryForInt("select count(*) from PROJECT " )
+		
 		
 	}
 }
