@@ -8,5 +8,14 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 class UserRest {
-	
+	@RequestMapping("/user")
+	public @ResponseBody String getUser() {
+		return """
+		{
+			"name":"bingo",
+			"age":34,
+			"address":"nanjing"
+		}
+		""";
+	}
 }
