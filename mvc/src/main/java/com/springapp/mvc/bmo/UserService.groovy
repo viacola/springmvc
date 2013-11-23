@@ -47,7 +47,7 @@ class UserService {
 	}
 	
 	public  queryUser(){
-		//def rows = sql.rows("select * from PROJECT where name like 'Gra%'")
+		def rows = sql.rows("select * from PROJECT where name like 'Gra%'")
 		 sql.eachRow('select * from PROJECT') { row ->
 			 println "${row.name.padRight(10)} ($row.url)"
 		 }
@@ -59,5 +59,9 @@ class UserService {
 		def num = jdbcTemplate.queryForInt("select count(*) from PROJECT " )
 		
 		
+	}
+	
+	public List queryForList(){
+		return jdbcTemplate.queryForList("select * from PROJECT ")
 	}
 }

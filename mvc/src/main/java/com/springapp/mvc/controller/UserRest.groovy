@@ -74,4 +74,13 @@ class UserRest {
 		user.toPrettyString()
 	}
 	
+	@RequestMapping("/queryForList")
+	public @ResponseBody String queryForList() {
+		
+		def project = new JsonBuilder();
+		project projectList :  userService.queryForList()
+		
+		project.toPrettyString()
+	}
+	
 }
