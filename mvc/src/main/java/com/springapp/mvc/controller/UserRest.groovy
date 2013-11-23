@@ -83,4 +83,15 @@ class UserRest {
 		project.toPrettyString()
 	}
 	
+	
+	@RequestMapping("/queryProject")
+	public @ResponseBody String queryProject() {
+		
+		def project = new JsonBuilder();
+		project List :  userService.queryProject()
+		
+		project.toPrettyString()
+	}
+	
+	
 }

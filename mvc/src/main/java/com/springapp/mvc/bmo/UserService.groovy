@@ -33,7 +33,7 @@ class UserService {
 		
 		def params = [20, 'Groovy', 'http://groovy.codehaus.org']
 		sql.execute 'insert into PROJECT (id, name, url) values (?, ?, ?)', params
-		
+		sql.close()
 		
 		
 	}
@@ -51,7 +51,14 @@ class UserService {
 		 sql.eachRow('select * from PROJECT') { row ->
 			 println "${row.name.padRight(10)} ($row.url)"
 		 }
-		return rows
+		 sql.close()
+		 return rows
+		
+	}
+	
+	public queryProject(){
+		def list =sql.rows("select * from PROJECT ")
+	
 	}
 	
 	public int  queryUser4Jt(){
@@ -62,6 +69,6 @@ class UserService {
 	}
 	
 	public List queryForList(){
-		return jdbcTemplate.queryForList("select * from PROJECT ")
+		jdbcTemplate.queryForList("select * from PROJECT ")
 	}
 }
