@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: chenbing
-Build-Jdk: 1.7.0_40
+Built-By: macos
+Build-Jdk: 1.7.0_21
 Created-By: Maven Integration for Eclipse
 
