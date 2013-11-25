@@ -57,7 +57,8 @@ class UserService {
 	}
 	
 	public queryProject(){
-		def list =sql.rows("select * from PROJECT ")
+//		def list =sql.rows("select * from PROJECT ")
+		sql.rows("select * from PROJECT ")
 	
 	}
 	
