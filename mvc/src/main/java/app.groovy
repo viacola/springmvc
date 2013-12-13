@@ -2,6 +2,9 @@
 @Grab(group='com.gmongo', module='gmongo', version='1.0')
 import com.gmongo.GMongo
 
+//@bingo 陈兵
+//@2013-12-13
+
 
 @RestController
 class ThisWillActuallyRun {
